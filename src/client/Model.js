@@ -302,7 +302,14 @@ class Model extends EventEmitter {
   }
 
   async set (path, value) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.set collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.set docId is required and should be a string')
@@ -314,7 +321,14 @@ class Model extends EventEmitter {
   }
 
   async del (...path) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.del collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.del docId is required and should be a string')
@@ -326,7 +340,14 @@ class Model extends EventEmitter {
   }
 
   async push (path, value) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.push collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.push docId is required and should be a string')
@@ -338,7 +359,14 @@ class Model extends EventEmitter {
   }
 
   async unshift (path, value) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.unshift collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.unshift docId is required and should be a string')
@@ -350,7 +378,14 @@ class Model extends EventEmitter {
   }
 
   async pop (path) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.pop collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.pop docId is required and should be a string')
@@ -362,7 +397,14 @@ class Model extends EventEmitter {
   }
 
   async shift (path) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.shift collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.shift docId is required and should be a string')
@@ -374,7 +416,14 @@ class Model extends EventEmitter {
   }
 
   async insert (path, index, values) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.insert collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.insert docId is required and should be a string')
@@ -387,7 +436,14 @@ class Model extends EventEmitter {
   }
 
   async remove (path, index, howMany) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.remove collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.remove docId is required and should be a string')
@@ -401,7 +457,14 @@ class Model extends EventEmitter {
   }
 
   async move (path, from, to, howMany) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.move collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.move docId is required and should be a string')
@@ -416,7 +479,14 @@ class Model extends EventEmitter {
   }
 
   async swap (path, from, to) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.swap collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.swap docId is required and should be a string')
@@ -430,7 +500,14 @@ class Model extends EventEmitter {
   }
 
   async arrayDiff (path, value) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.arrayDiff collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.arrayDiff docId is required and should be a string')
@@ -443,7 +520,14 @@ class Model extends EventEmitter {
   }
 
   async invert (path) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.invert collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.invert docId is required and should be a string')
@@ -455,7 +539,14 @@ class Model extends EventEmitter {
   }
 
   async increment (path, value) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.increment collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.increment docId is required and should be a string')
@@ -468,7 +559,14 @@ class Model extends EventEmitter {
   }
 
   async stringInsert (path, index, value) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.stringInsert collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.stringInsert docId is required and should be a string')
@@ -482,7 +580,14 @@ class Model extends EventEmitter {
   }
 
   async stringRemove (path, index, howMany) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.stringRemove collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.stringRemove docId is required and should be a string')
@@ -496,7 +601,14 @@ class Model extends EventEmitter {
   }
 
   async stringDiff (path, value) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.stringDiff collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.stringDiff docId is required and should be a string')
@@ -509,7 +621,14 @@ class Model extends EventEmitter {
   }
 
   async richDiff (path, value) {
-    let [collectionName, docId, ...field] = parsePath(path)
+    let parsedPath = parsePath(path)
+    let collectionName, docId, pathParams, field
+    if (parsedPath.length > 2) {
+      [collectionName, docId, ...pathParams] = parsePath(path)
+      field = pathParams.join('.')
+    } else {
+      [collectionName, docId] = parsePath(path)
+    }
 
     invariant(collectionName && typeof collectionName === 'string', 'Model.richDiff collectionName is required and should be a string')
     invariant(docId && typeof docId === 'string', 'Model.richDiff docId is required and should be a string')
